@@ -1,0 +1,97 @@
+{
+    "DeliveryStreamDescription": {
+        "DeliveryStreamName": "Test-Kinesis-01",
+        "DeliveryStreamARN": "arn:aws:firehose:us-east-1:935057195470:deliverystream/Test-Kinesis-01",
+        "DeliveryStreamStatus": "ACTIVE",
+        "DeliveryStreamEncryptionConfiguration": {
+            "Status": "DISABLED"
+        },
+        "DeliveryStreamType": "DirectPut",
+        "VersionId": "1",
+        "CreateTimestamp": "2021-11-01T22:52:50.080000+11:00",
+        "Destinations": [
+            {
+                "DestinationId": "destinationId-000000000001",
+                "S3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::935057195470:role/Test-Kinesis-stack-v01-DeliveryRole-1H7SY5TU2BVC3",
+                    "BucketARN": "arn:aws:s3:::test-kinesis-stack-v01-firehosebucket-fr9x3u4afimt",
+                    "Prefix": "firehose/",
+                    "BufferingHints": {
+                        "SizeInMBs": 50,
+                        "IntervalInSeconds": 60
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": false
+                    }
+                },
+                "ExtendedS3DestinationDescription": {
+                    "RoleARN": "arn:aws:iam::935057195470:role/Test-Kinesis-stack-v01-DeliveryRole-1H7SY5TU2BVC3",
+                    "BucketARN": "arn:aws:s3:::test-kinesis-stack-v01-firehosebucket-fr9x3u4afimt",
+                    "Prefix": "firehose/",
+                    "BufferingHints": {
+                        "SizeInMBs": 50,
+                        "IntervalInSeconds": 60
+                    },
+                    "CompressionFormat": "UNCOMPRESSED",
+                    "EncryptionConfiguration": {
+                        "NoEncryptionConfig": "NoEncryption"
+                    },
+                    "CloudWatchLoggingOptions": {
+                        "Enabled": false
+                    },
+                    "ProcessingConfiguration": {
+                        "Enabled": true,
+                        "Processors": [
+                            {
+                                "Type": "Lambda",
+                                "Parameters": [
+                                    {
+                                        "ParameterName": "LambdaArn",
+                                        "ParameterValue": "arn:aws:lambda:us-east-1:935057195470:function:Test-Kinesis-stack-v01-LambdaFunction-I15dmxAzAAxK"
+                                    },
+                                    {
+                                        "ParameterName": "NumberOfRetries",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "RoleArn",
+                                        "ParameterValue": "arn:aws:iam::935057195470:role/Test-Kinesis-stack-v01-DeliveryRole-1H7SY5TU2BVC3"
+                                    },
+                                    {
+                                        "ParameterName": "BufferSizeInMBs",
+                                        "ParameterValue": "3"
+                                    },
+                                    {
+                                        "ParameterName": "BufferIntervalInSeconds",
+                                        "ParameterValue": "60"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "S3BackupMode": "Enabled",
+                    "S3BackupDescription": {
+                        "RoleARN": "arn:aws:iam::935057195470:role/Test-Kinesis-stack-v01-DeliveryRole-1H7SY5TU2BVC3",
+                        "BucketARN": "arn:aws:s3:::test-kinesis-stack-v01-firehosebucket-fr9x3u4afimt",
+                        "BufferingHints": {
+                            "SizeInMBs": 50,
+                            "IntervalInSeconds": 60
+                        },
+                        "CompressionFormat": "UNCOMPRESSED",
+                        "EncryptionConfiguration": {
+                            "NoEncryptionConfig": "NoEncryption"
+                        },
+                        "CloudWatchLoggingOptions": {
+                            "Enabled": false
+                        }
+                    }
+                }
+            }
+        ],
+        "HasMoreDestinations": false
+    }
+}
