@@ -1,0 +1,132 @@
+
+[
+    {
+        "id": "d2b1d26182640cee",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "27897e3ed2b36fa5",
+        "type": "amazon config",
+        "name": "AWS",
+        "region": "us-east-1",
+        "proxyRequired": false,
+        "proxy": ""
+    },
+    {
+        "id": "c9cdea99b3768831",
+        "type": "AWS Firehose",
+        "z": "d2b1d26182640cee",
+        "aws": "27897e3ed2b36fa5",
+        "operation": "PutRecord",
+        "DeliveryStreamName": "",
+        "Record": "",
+        "Records": "",
+        "Tags": "",
+        "TagKeys": "",
+        "CurrentDeliveryStreamVersionId": "",
+        "DestinationId": "",
+        "name": "",
+        "x": 820,
+        "y": 100,
+        "wires": [
+            [
+                "cb1e2b911cc458c9"
+            ],
+            [
+                "6708874ddaf68fed"
+            ]
+        ]
+    },
+    {
+        "id": "604d3d02c0df089a",
+        "type": "inject",
+        "z": "d2b1d26182640cee",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "DeliveryStreamName",
+                "v": "FirehoseNenufar",
+                "vt": "str"
+            },
+            {
+                "p": "Record.Data",
+                "v": "{\"test\" : 2}",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "c9cdea99b3768831",
+                "15101dab3a240745"
+            ]
+        ]
+    },
+    {
+        "id": "15101dab3a240745",
+        "type": "debug",
+        "z": "d2b1d26182640cee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6708874ddaf68fed",
+        "type": "debug",
+        "z": "d2b1d26182640cee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "cb1e2b911cc458c9",
+        "type": "debug",
+        "z": "d2b1d26182640cee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 60,
+        "wires": []
+    }
+]
